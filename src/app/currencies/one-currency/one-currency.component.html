@@ -1,0 +1,8 @@
+<div class="button-row">
+  <button mat-button routerLink="/"> Back </button>
+</div>
+<app-page-loader *ngIf="!isReady"></app-page-loader>
+<div class="container"  *ngIf="isReady">
+  <div class="row"> id : {{user.id}}</div>
+  <div class="row"> title : {{user.title}} </div>
+</div>
