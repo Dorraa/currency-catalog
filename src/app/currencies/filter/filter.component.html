@@ -1,0 +1,16 @@
+<form>
+  <mat-form-field>
+      <input [(ngModel)]="filter.filterSearch" name="filterSearch" matInput placeholder="Search...">
+  </mat-form-field>
+  <mat-form-field>
+      <mat-select [(ngModel)]="filter.filterOption" name="filterOption" placeholder="Option">
+          <mat-option *ngFor="let i of filterOptions" [value]="i.viewValue">
+            {{i.viewValue}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button type="button"
+    class="btn btn-primary"
+    (click)="filterData()">Filter
+  </button>
+</form>

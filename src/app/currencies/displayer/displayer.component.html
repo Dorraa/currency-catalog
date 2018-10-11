@@ -1,9 +1,10 @@
+<app-filter (messageEvent)="filterChanged($event)"></app-filter>
 <app-page-loader *ngIf="!isReady"></app-page-loader>
 <mat-grid-list cols="4" rowHeight="100px" *ngIf="isReady">
   <mat-grid-tile
       *ngFor="let data of currencies"
       [colspan]=2
-      [rowspan]=1 style="border:solid" [routerLink]="['currency',data.id]">ID : {{data.id}} Type:National Symbol :{{data.title}}
+      [rowspan]=1 style="border:solid" [routerLink]="['currency',data.id]">ID : {{data.id}} Type:National Symbol :{{data.attributes.native_symbol}}
   </mat-grid-tile>
 </mat-grid-list>
 <app-paginator (messageEvent)="receivePaginatedData($event)"></app-paginator>

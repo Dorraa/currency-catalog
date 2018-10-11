@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrenciesService } from '../currencies.service';
 import { Observable } from 'rxjs';
+import { Currency } from '../models/currency';
 
 @Component({
   selector: 'app-one-currency',
@@ -10,20 +11,18 @@ import { Observable } from 'rxjs';
 })
 export class OneCurrencyComponent implements OnInit {
 
-  //currencyDetails : CurrencyAttributes;
-  //currencies : Array<Currency> = [];
-
-  userId : number;
-  user : object;
+  currencyId : number;
+  currencyDetails : Currency;
   isReady : boolean = false;
 
   constructor(private route : ActivatedRoute,private service : CurrenciesService) {
-    this.route.params.subscribe(params => this.userId = params.id)
+    this.route.params.subscribe(params => this.currencyId = params.id)
    }
 
   ngOnInit() {
-    this.service.getById(this.userId).subscribe(data => {this.user = data;
-      this.isReady = true;});
+    this.service.getById(this.currencyId).subscribe((data : Currency) => {this.currencyDetails = data;
+      this.isReady = true;},
+      error => console.log ('err.'));
   }
 
 }

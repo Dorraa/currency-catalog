@@ -6,6 +6,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule,MatInputModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +16,7 @@ import { DisplayerComponent } from './currencies/displayer/displayer.component';
 import { OneCurrencyComponent} from './currencies/one-currency/one-currency.component';
 import { PageLoaderComponent} from './currencies/page-loader/page-loader.component';
 import { PaginatorComponent} from './currencies/paginator/paginator.component';
+import { FilterComponent} from './currencies/filter/filter.component';
 
 
 @NgModule({
@@ -21,7 +25,8 @@ import { PaginatorComponent} from './currencies/paginator/paginator.component';
     DisplayerComponent,
     OneCurrencyComponent,
     PageLoaderComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    FilterComponent
 
   ],
   imports: [
@@ -31,7 +36,12 @@ import { PaginatorComponent} from './currencies/paginator/paginator.component';
     MatGridListModule,
     MatButtonModule,
     MatPaginatorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

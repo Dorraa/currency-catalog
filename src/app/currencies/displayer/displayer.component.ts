@@ -12,16 +12,17 @@ import { Currency } from '../models/currency';
 export class DisplayerComponent implements OnInit {
 
 
-  isReady : boolean = false;
-  currencies :  Object[];
+    isReady : boolean = false;
+    currencies :  Currency[];
 
-  constructor(private service : CurrenciesService) { }
+    constructor(private service : CurrenciesService) { }
   
-  ngOnInit() {
+    ngOnInit() {
 
     this.service.getAllCurrencies().subscribe(
-      (data : Object[]) => {this.currencies   = data
-      this.isReady = true;}
+      (data : Currency[]) => {this.currencies   = data
+      this.isReady = true;},
+      error => console.log ('err.')
       );
     }
 
@@ -29,10 +30,25 @@ export class DisplayerComponent implements OnInit {
       console.log("receiveMessage ", event);
       this.isReady = false;
       this.service.getPaginatedCurrencies(event.pageIndex , event.pageSize)
-        .subscribe((data : Object[]) => {
-          this.currencies = [];
+        .subscribe((data : Currency[]) => {
+          this.currencies = data;
           this.isReady = true;
-        });
+        },
+        error => console.log ('err.')
+        );
     }
+
+    filterChanged(event) {
+      console.log('filter changed : ', event);
+      this.isReady = false;
+      this.service.getFilteredData(event)
+        .subscribe((data : Currency[]) => {
+          this.currencies = data;
+          this.isReady = true;
+        },
+        error => console.log ('err.')
+        );
+    }
+
 
   }

@@ -3,6 +3,9 @@
 </div>
 <app-page-loader *ngIf="!isReady"></app-page-loader>
 <div class="container"  *ngIf="isReady">
-  <div class="row"> id : {{user.id}}</div>
-  <div class="row"> title : {{user.title}} </div>
+  <div class="row"> Code : {{currencyDetails.attributes.Code}}</div>
+  <div class="row"> Name : {{currencyDetails.attributes.Name}} </div>
+  <div class="row"> Currency_Type : {{currencyDetails.attributes.Currency_Type}} </div>
+  <div class="row"> Currency_iso_numeric3 : {{currencyDetails.attributes.Currency_iso_numeric3}} </div>
+  <div class="row"> Currency_iso_alpha3 : {{currencyDetails.attributes.Currency_iso_alpha3}} </div>
 </div>
