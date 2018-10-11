@@ -6,3 +6,4 @@
       [rowspan]=1 style="border:solid" [routerLink]="['currency',data.id]">ID : {{data.id}} Type:National Symbol :{{data.title}}
   </mat-grid-tile>
 </mat-grid-list>
+<app-paginator (messageEvent)="receivePaginatedData($event)"></app-paginator>

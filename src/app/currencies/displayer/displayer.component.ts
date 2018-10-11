@@ -24,4 +24,15 @@ export class DisplayerComponent implements OnInit {
       this.isReady = true;}
       );
     }
+
+    receivePaginatedData(event) {
+      console.log("receiveMessage ", event);
+      this.isReady = false;
+      this.service.getPaginatedCurrencies(event.pageIndex , event.pageSize)
+        .subscribe((data : Object[]) => {
+          this.currencies = [];
+          this.isReady = true;
+        });
+    }
+
   }

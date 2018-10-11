@@ -4,12 +4,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
 import { DisplayerComponent } from './currencies/displayer/displayer.component';
 import { OneCurrencyComponent} from './currencies/one-currency/one-currency.component';
 import { PageLoaderComponent} from './currencies/page-loader/page-loader.component';
+import { PaginatorComponent} from './currencies/paginator/paginator.component';
 
 
 @NgModule({
@@ -17,8 +20,8 @@ import { PageLoaderComponent} from './currencies/page-loader/page-loader.compone
     AppComponent,
     DisplayerComponent,
     OneCurrencyComponent,
-    PageLoaderComponent
-    
+    PageLoaderComponent,
+    PaginatorComponent
 
   ],
   imports: [
@@ -26,8 +29,9 @@ import { PageLoaderComponent} from './currencies/page-loader/page-loader.compone
     AppRoutingModule,
     HttpClientModule,
     MatGridListModule,
-    MatButtonModule
-
+    MatButtonModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

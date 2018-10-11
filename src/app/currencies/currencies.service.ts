@@ -25,5 +25,10 @@ export class CurrenciesService {
    // return this.http.get('https://api.openfintech.io/v1/currencies/'+id);
   }
 
+   //get currency with pagination option
+   getPaginatedCurrencies(pageNumber : number, pageSize : number){
+    return this.http.get('https://api.openfintech.io/v1/currencies?page%5Bnumber%5D='+pageNumber+'&page%5Bsize%5D='+pageSize)
+  };
+
 
 }
